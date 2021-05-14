@@ -6,6 +6,7 @@ const app = express();
 
 app.use(express.json());
 app.use(controllers());
+app.use(express.static("../frontend"))
 
 app.listen(process.env.PORT, () => {
     console.log("Backend is running on port:", process.env.PORT);
