@@ -64,9 +64,11 @@ img {
 }
 
 h5 {
+  width: 98%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
