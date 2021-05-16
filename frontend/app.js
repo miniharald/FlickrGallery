@@ -1,12 +1,23 @@
 const imagesDiv = document.querySelector(".images");
 const loadingDiv = document.querySelector(".loading");
+let activePage = 1;
+let totalPages = activePage;
 addImages();
+
+window.addEventListener("scroll", () => {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  if (scrollTop + clientHeight >= scrollHeight && activePage < totalPages) {
+    activePage++;
+    addImages();
+  };
+})
 
 async function addImages() {
   loadingDiv.classList.add("active");
-  await fetch("http://localhost:8050/api/photos/1")
+  await fetch("http://localhost:8050/api/photos/" + activePage)
   .then(res => res.json())
   .then(res => {
+    totalPages = res.photos.pages
     res.photos.photo.forEach(photo => {
       imagesDiv.appendChild(createPhotoBox(photo));
     });

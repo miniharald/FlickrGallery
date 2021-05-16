@@ -4,6 +4,13 @@ body {
   font-family: 'Rajdhani', sans-serif;
   background-color: #09010c;
   color: #fdec22;
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: #09010c;
 }
 
 h1 {
@@ -11,8 +18,12 @@ h1 {
   text-align: center;
 }
 
+main {
+  padding-top: 90px;
+}
+
 .loading {
-  position: absolute;
+  position: fixed;
   top: 150px;
   left: calc(50% - 200px);
   display: none;
@@ -32,6 +43,7 @@ h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .photo {
@@ -49,4 +61,30 @@ h1 {
 img {
   max-width: 400px;
   height: 200px;
+}
+
+h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 1024px) {
+  .photo {
+    width: 295px;
+  }
+
+  img {
+    max-width: 295px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .photo {
+    width: 340px;
+  }
+
+  img {
+    max-width: 340px;
+  }
 }
